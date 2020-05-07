@@ -13,12 +13,14 @@
 
 # Output files from R CMD build
 /*.tar.gz
+/*.zip
 
 # Output files from R CMD check
 /*.Rcheck/
 
 # RStudio files
 .Rproj.user/
+scratch.R
 
 # produced vignettes
 vignettes/*.html
@@ -37,3 +39,4 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+.DS_Store
