@@ -3,4 +3,4 @@
 ## NOTE TO GRADERS
 Unfortnately GitHub will not display `PA1_template.html` in GitHub due to size limitations. Instead, please view the file on raw format, then save it to your local computer, and finally open the HTML file with a web browser. Sorry for the invconvenience -- GitHub limitation.
 
-<p><a href="https://github.com/dador92/RepRes_Proj01/PA1_template.html" target="_blank">readable copy</a></p>
+<p><a href="https://github.com/dador92/RepRes_Proj01/blob/master/PA1_template.html" target="_blank">readable copy</a></p>
