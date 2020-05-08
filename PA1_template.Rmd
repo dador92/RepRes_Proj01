@@ -49,7 +49,7 @@ head(data.daily)
 
 #### Solution:
 
-```{r stepshist, cache=TRUE}
+```{r stepshist, cache=TRUE, fig.width=5, fig.height=4}
 hist(data.daily$steps, breaks=8, xlim=c(0,25000), ylim=c(0,20),
      xlab="Steps per Day", main="Daily Steps", col="green", border="darkgreen")
 ```
@@ -70,7 +70,7 @@ So the `mean()` of the steps taken is `r mean(data.daily$steps, na.rm=TRUE)` whi
 
 #### Solution:
 
-```{r dailyinterval, cache=TRUE}
+```{r dailyinterval, cache=TRUE,  fig.width=5, fig.height=4}
 data.interval <-
     data.raw %>% 
     group_by(interval) %>%
@@ -130,7 +130,7 @@ tail(data.complete)
 
 #### Solution:
 
-```{r histcomplete, cache=TRUE}
+```{r histcomplete, cache=TRUE,  fig.width=5, fig.height=4}
 data.daily.complete <-
     data.complete %>% 
     group_by(date) %>%
@@ -168,7 +168,7 @@ head(data.complete.wdays)
 
 #### Solution:
 
-```{r serieswday, cache=TRUE}
+```{r serieswday, cache=TRUE,  fig.width=5, fig.height=4}
 data.interval.wdays <-
     data.complete.wdays %>%
     filter(day.type=="weekday") %>%
