@@ -184,12 +184,18 @@ data.interval.wkend <-
     summarize_at(vars(steps.complete), list(steps.complete = mean))
 head(data.interval.wkend)
 
-with(data.interval.wdays,
+library(scales)
+
+with(data.interval.wdays, {
     plot(interval, steps.complete, type="l", col="orange", xlab="Interval", ylab="Steps",
-         main="Average Daily Activity Pattern, Weekdays vs. Weekends"))
-with(data.interval.wkend,
-    lines(interval, steps.complete, type="l", col="red", xlab="", ylab="",
-         main=""))
+         main="Average Daily Activity Pattern, Weekdays vs. Weekends");
+    lines(lowess(interval, steps.complete, f=0.2), col=rgb(1.0, 0.647, 0.0, 0.25), lwd=3)
+    })
+
+with(data.interval.wkend, {
+    lines(interval, steps.complete, type="l", col="red", xlab="", ylab="", main="");
+    lines(lowess(interval, steps.complete, f=0.2), col=rgb(1.0, 0.0, 0.0, 0.25), lwd=3)
+    })
 legend("topright", legend=c("weekdays", "weekends"),
        col=c("orange", "red"), lty=1, cex=0.8)
 ```
