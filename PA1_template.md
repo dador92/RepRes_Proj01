@@ -2,9 +2,6 @@
 title: "Project 1, Reprodicible Research"
 author: "Jim McGuinness"
 date: "5/7/2020"
-output: 
-  html_document: 
-    keep_md: yes
 ---
 
 
