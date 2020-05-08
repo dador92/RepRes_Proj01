@@ -83,7 +83,7 @@ hist(data.daily$steps, breaks=8, xlim=c(0,25000), ylim=c(0,20),
      xlab="Steps per Day", main="Daily Steps", col="green", border="darkgreen")
 ```
 
-<img src="PA1_template_files/figure-gfm/stepshist-1.png" width="70%" />
+<img src="./figures/stepshist-1.png" width="70%" />
 
 3.  Calculate and report the mean and median of the total number of
     steps taken per day
@@ -139,7 +139,7 @@ with(data.interval,
          main="Average Daily Activity Pattern"))
 ```
 
-<img src="PA1_template_files/figure-gfm/dailyinterval-1.png" width="70%" />
+<img src="./figures/dailyinterval-1.png" width="70%" />
 
 2.  Which 5-minute interval, on average across all the days in the
     dataset, contains the maximum number of
@@ -255,7 +255,7 @@ abline(v=mean(data.daily.complete$steps.complete), lty="dashed", col="blue")
 abline(v=median(data.daily.complete$steps.complete), lty="solid", col="red")
 ```
 
-<img src="PA1_template_files/figure-gfm/histcomplete-1.png" width="70%" />
+<img src="./figures/histcomplete-1.png" width="70%" />
 
 The median and the mean are almost identical (about 10766), probably
 because the NA-value days turned out to be the most prevelant and
@@ -353,7 +353,7 @@ legend("topright", legend=c("weekdays", "weekends"),
        col=c("orange", "red"), lty=1, cex=0.8)
 ```
 
-<img src="PA1_template_files/figure-gfm/serieswday-1.png" width="70%" />
+<img src="./figures/serieswday-1.png" width="70%" />
 
 It appears that on weekdays, most of the walking occurs at 8:30 am and
 pre-dinner, whereas on the weekends the walking is much more evenly

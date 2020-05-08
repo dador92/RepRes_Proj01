@@ -7,7 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo=TRUE)
-knitr::opts_chunk$set(fig.path = "./figures/")
+knitr::opts_chunk$set(fig.path = "figures/")
 ```
 
 The assignment is broken down into multiple parts. The instructions for each are reproduced below immediately followed by my proposed solution.

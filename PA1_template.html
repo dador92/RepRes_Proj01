@@ -564,6 +564,14 @@ abline(v=median(data.daily.complete$steps.complete), lty=&quot;solid&quot;, col=
 <div id="solution-10" class="section level4">
 <h4>Solution:</h4>
 <pre class="r"><code>library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: 'lubridate'</code></pre>
+<pre><code>## The following objects are masked from 'package:dplyr':
+## 
+##     intersect, setdiff, union</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union</code></pre>
 <pre class="r"><code>data.complete.wdays &lt;-
     data.complete %&gt;%
     mutate(day.type=ifelse(wday(data.complete$date) %in% c(1,7), &quot;weekend&quot;, &quot;weekday&quot;))
