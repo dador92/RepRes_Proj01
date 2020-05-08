@@ -1,10 +1,7 @@
+#Project 1, Reprodicible Research
+###author: "Jim McGuinness"
+###date: "5/7/2020"
 ---
-title: "Project 1, Reprodicible Research"
-author: "Jim McGuinness"
-date: "5/7/2020"
----
-
-
 
 The assignment is broken down into multiple parts. The instructions for each are reproduced below immediately followed by my proposed solution.
 
