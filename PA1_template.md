@@ -1,4 +1,4 @@
-# Project 1, Reprodicible Research
+# Project 1, Reproducible Research
 
 ### author: Jim McGuinness
 

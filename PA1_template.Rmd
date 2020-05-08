@@ -1,5 +1,5 @@
 ---
-title: "Project 1, Reprodicible Research"
+title: "Project 1, Reproducible Research"
 author: "Jim McGuinness"
 date: "5/7/2020"
 output: 
