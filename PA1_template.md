@@ -5,7 +5,6 @@ date: "5/7/2020"
 output: 
   html_document: 
     keep_md: yes
-    self_contained: no
 ---
 
 
@@ -45,6 +44,23 @@ For this part of the assignment, you can ignore the missing values in the datase
 
 ```r
 library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
 ```
 
 
@@ -269,6 +285,23 @@ For this part the `weekdays()` function may be of some help here. Use the datase
 
 ```r
 library(lubridate)
+```
+
+```
+## 
+## Attaching package: 'lubridate'
+```
+
+```
+## The following objects are masked from 'package:dplyr':
+## 
+##     intersect, setdiff, union
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union
 ```
 
 ```r
