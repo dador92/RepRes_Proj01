@@ -2,12 +2,15 @@
 title: "Project 1, Reprodicible Research"
 author: "Jim McGuinness"
 date: "5/7/2020"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
+    self_contained: no
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo=TRUE)
-knitr::opts_chunk$set(fig.path = "figures/")
+knitr::opts_chunk$set(fig.path = "./figures/")
 ```
 
 The assignment is broken down into multiple parts. The instructions for each are reproduced below immediately followed by my proposed solution.
@@ -78,9 +81,12 @@ data.interval <-
     summarize_at(vars(steps), list(steps.avg = mean), na.rm=TRUE)
 head(data.interval)
 summary(data.interval$steps.avg)
-with(data.interval,
+
+with(data.interval, {
     plot(interval, steps.avg, type="l", xlab="Interval", ylab="Steps",
-         main="Average Daily Activity Pattern"))
+         main="Average Daily Activity Pattern");
+    lines(lowess(interval, steps.avg, f=0.3), col=rgb(0.5, 0.5, 0.5, 0.6), lwd=3)
+})
 ```
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -196,6 +202,7 @@ with(data.interval.wkend, {
     lines(interval, steps.complete, type="l", col="red", xlab="", ylab="", main="");
     lines(lowess(interval, steps.complete, f=0.2), col=rgb(1.0, 0.0, 0.0, 0.25), lwd=3)
     })
+
 legend("topright", legend=c("weekdays", "weekends"),
        col=c("orange", "red"), lty=1, cex=0.8)
 ```
