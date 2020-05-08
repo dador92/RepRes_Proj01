@@ -1,7 +1,6 @@
+---
 # Project 1, Reproducible Research
-
 ### author: Jim McGuinness
-
 ### date: 08-May-2020
 ---
 
@@ -325,61 +324,33 @@ head(data.complete.wdays)
 ```r
 data.interval.wdays <-
     data.complete.wdays %>%
-    filter(day.type=="weekday") %>%
-    group_by(interval) %>%
+    group_by(day.type, interval) %>%
     summarize_at(vars(steps.complete), list(steps.complete = mean))
 head(data.interval.wdays)
 ```
 
 ```
-## # A tibble: 6 x 2
-##   interval steps.complete
-##      <int>          <dbl>
-## 1        0         2.25  
-## 2        5         0.445 
-## 3       10         0.173 
-## 4       15         0.198 
-## 5       20         0.0990
-## 6       25         1.59
+## # A tibble: 6 x 3
+## # Groups:   day.type [1]
+##   day.type interval steps.complete
+##   <chr>       <int>          <dbl>
+## 1 weekday         0         2.25  
+## 2 weekday         5         0.445 
+## 3 weekday        10         0.173 
+## 4 weekday        15         0.198 
+## 5 weekday        20         0.0990
+## 6 weekday        25         1.59
 ```
 
 ```r
-data.interval.wkend <-
-    data.complete.wdays %>%
-    filter(day.type=="weekend") %>%
-    group_by(interval) %>%
-    summarize_at(vars(steps.complete), list(steps.complete = mean))
-head(data.interval.wkend)
-```
-
-```
-## # A tibble: 6 x 2
-##   interval steps.complete
-##      <int>          <dbl>
-## 1        0        0.215  
-## 2        5        0.0425 
-## 3       10        0.0165 
-## 4       15        0.0189 
-## 5       20        0.00943
-## 6       25        3.51
-```
-
-```r
-library(scales)
-
-with(data.interval.wdays, {
-    plot(interval, steps.complete, type="l", col="orange", xlab="Interval", ylab="Steps",
-         main="Average Daily Activity Pattern, Weekdays vs. Weekends");
-    lines(lowess(interval, steps.complete, f=0.2), col=rgb(1.0, 0.647, 0.0, 0.25), lwd=3)
-    })
-
-with(data.interval.wkend, {
-    lines(interval, steps.complete, type="l", col="red", xlab="", ylab="", main="");
-    lines(lowess(interval, steps.complete, f=0.2), col=rgb(1.0, 0.0, 0.0, 0.25), lwd=3)
-    })
-
-legend("topright", legend=c("weekdays", "weekends"),
-       col=c("orange", "red"), lty=1, cex=0.8)
+library(ggplot2)
+theme_set(theme_bw())
+labels <- c(weekend="Weekends", weekday="Weekdays")
+ggplot(data=data.interval.wdays, aes(x = interval, y = steps.complete), color=day.type) +
+    geom_line() +
+    geom_smooth(method="loess", formula="y~x", se=FALSE, color=rgb(0.004, 0.196, 0.125, 0.25), size=1.3) +
+    xlab("Interval") + ylab("Steps") +
+    facet_wrap(~ day.type, nrow=2, ncol=1, labeller=labeller(day.type=labels))
 ```
 
 ![](./figures/serieswday-1.png)<!-- -->

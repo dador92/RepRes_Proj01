@@ -174,36 +174,21 @@ head(data.complete.wdays)
 
 #### Solution:
 
-```{r serieswday, cache=TRUE}
+```{r serieswday, cache=TRUE, fig.height=8}
 data.interval.wdays <-
     data.complete.wdays %>%
-    filter(day.type=="weekday") %>%
-    group_by(interval) %>%
+    group_by(day.type, interval) %>%
     summarize_at(vars(steps.complete), list(steps.complete = mean))
 head(data.interval.wdays)
 
-data.interval.wkend <-
-    data.complete.wdays %>%
-    filter(day.type=="weekend") %>%
-    group_by(interval) %>%
-    summarize_at(vars(steps.complete), list(steps.complete = mean))
-head(data.interval.wkend)
-
-library(scales)
-
-with(data.interval.wdays, {
-    plot(interval, steps.complete, type="l", col="orange", xlab="Interval", ylab="Steps",
-         main="Average Daily Activity Pattern, Weekdays vs. Weekends");
-    lines(lowess(interval, steps.complete, f=0.2), col=rgb(1.0, 0.647, 0.0, 0.25), lwd=3)
-    })
-
-with(data.interval.wkend, {
-    lines(interval, steps.complete, type="l", col="red", xlab="", ylab="", main="");
-    lines(lowess(interval, steps.complete, f=0.2), col=rgb(1.0, 0.0, 0.0, 0.25), lwd=3)
-    })
-
-legend("topright", legend=c("weekdays", "weekends"),
-       col=c("orange", "red"), lty=1, cex=0.8)
+library(ggplot2)
+theme_set(theme_bw())
+labels <- c(weekend="Weekends", weekday="Weekdays")
+ggplot(data=data.interval.wdays, aes(x = interval, y = steps.complete), color=day.type) +
+    geom_line() +
+    geom_smooth(method="loess", formula="y~x", se=FALSE, color=rgb(0.004, 0.196, 0.125, 0.25), size=1.3) +
+    xlab("Interval") + ylab("Steps") +
+    facet_wrap(~ day.type, nrow=2, ncol=1, labeller=labeller(day.type=labels))
 ```
 
 It appears that on weekdays, most of the walking occurs at 8:30 am and pre-dinner, whereas on the weekends the walking is much more evenly dispersed throughout the day.
