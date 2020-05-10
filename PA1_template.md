@@ -1,12 +1,12 @@
 ---
-title: "Project 1, Reproducible Research"
-author: "Jim McGuinness"
-date: "10-May-2020"
-output: 
-  html_document: 
-    keep_md: yes
----
 
+# Project 1, Reproducible Research
+
+### author: Jim McGuinness
+
+### date: 10-May-2020
+
+---
 
 
 The assignment is broken down into multiple parts. The instructions for each are reproduced below immediately followed by my proposed solution.
